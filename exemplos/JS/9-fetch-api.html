@@ -1,0 +1,28 @@
+<!-- get -->
+<!-- post -->
+<!-- put -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+  </head>
+  <body>
+    <script>
+
+    fetch('http://localhost:3000/alunos',{
+        method:"POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(
+          {
+          nome: "Patrícia Marcela Sara Novaes",
+          matricula: "003",
+          curso: "Sistemas para internet"
+        }
+      )
+    })
+    .then(res=>res.json())
+    .then(json=>console.log(json))
+    </script>
+  </body>
+</html>

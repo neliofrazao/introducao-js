@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Formulário Validação</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        width: 500px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      h1 {
+        text-align: center;
+        margin: 1rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .form-control {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input, textarea {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        transform: 0.5s;
+      }
+
+      input:focus, textarea:focus {
+        outline: 0;
+        border: 1px solid #097;
+      }
+
+      .error-message {
+        color: #c01f1f;
+        font-weight: bold;
+        margin-top: 2.rem;
+      }
+
+      button {
+        background-color: #5241b6;
+        color: #fff;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2d216d;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <div class="container">
+        <h1>Formulário</h1>
+        <form>
+          <div class="form-control">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" onblur="validateField(this)">
+            <div id="nameError" class="error-message"></div>
+          </div>
+
+          <div class="form-control">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" onblur="validateField(this)">
+            <div id="emailError" class="error-message"></div>
+          </div>
+
+          <div class="form-control">
+            <label for="selectOption">Escolha:</label>
+            <select id="selectOption" onblur="validateField(this)">
+                <option value=""></option>
+                <option value="opcao1">Opção 1</option>
+                <option value="opcao2">Opção 2</option>
+            </select>
+            <div id="selectOptionError" class="error-message"></div>
+          </div>
+
+
+          <div class="form-control">
+            <label for="message">Mensagem:</label>
+            <textarea id="message" onblur="validateField(this)"></textarea>
+            <div id="messageError" class="error-message"></div>
+          </div>
+          
+          <button type="button" onclick="submitForm()">Enviar</button>
+        </form>
+    </div>
+    <script>
+      // pega todos os inputs
+      // cria um funcao de validação
+      // pega todos os fieldsNames
+      // pega os values
+      // checa se tem valor
+
+     
+    </script>
+  </body>
+</html>
+
+
+
+
+]

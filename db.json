@@ -1,0 +1,28 @@
+{
+  "alunos": [
+    {
+      "nome": "Nélio Frazão Chaves",
+      "matricula": "2047645",
+      "curso": "Sistemas para internet",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nome": "Murilo Victor Bento Dias",
+      "matricula": "002",
+      "curso": "Redes"
+    },
+    {
+      "id": 3,
+      "nome": "Patrícia Marcela Sara Novaes",
+      "matricula": "003",
+      "curso": "Sistemas para internet"
+    },
+    {
+      "nome": "Nélio Frazão Chaves",
+      "matricula": "2047645",
+      "curso": "Sistemas para internet",
+      "id": 4
+    }
+  ]
+}
