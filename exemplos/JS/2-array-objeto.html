@@ -87,6 +87,42 @@
       console.log('todosNumeros', todosNumeros); // Saída: true
     }
 
+    const objOriginal = {
+      name: 'nome da pessoa',
+      age: 33,
+      email: 'email@email.com',
+      isStudent: true,
+    }
+
+    // spread operator
+    const newObj = {
+      ...objOriginal,
+      subject: 'JS',
+      isStudent: false,
+    }
+
+    const originalState = {
+      data: [],
+      isLoading: true,
+      hasError: false,
+    }
+    const apiDataState = {
+      ...originalState,
+      data: [{
+        name:'pessoa'
+      }],
+      isLoading: false,
+    }
+
+    const apiErrorDataState = {
+      ...originalState,
+      isLoading: false,
+      hasError: true,
+    }
+
+
+    console.log('objOriginal', objOriginal)
+    console.log('newObj', newObj)
     
   </script>
 </head>

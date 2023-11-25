@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <script>
+    
+    const alunos = [
+        { nome: 'João', disciplinas: { matematica: 8, portugues: 7, historia: 9 } },
+        { nome: 'Maria', disciplinas: { matematica: 6, portugues: 8, historia: 7 } },
+        { nome: 'Carlos', disciplinas: { matematica: 10, portugues: 8, historia: 9 } }
+      ];
+
+      alunos.forEach(aluno => {
+        const notas = Object.values(aluno.disciplinas);
+        const passouEmTodasDisciplinas = notas.every(nota => nota >= 6);
+
+        if (passouEmTodasDisciplinas) {
+          console.log(`${aluno.nome} passou em todas as disciplinas.`);
+        } else {
+          console.log(`${aluno.nome} não passou em todas as disciplinas.`);
+        }
+      });
+
+    </script>
+  </head>
+  <body>      
+  </body>
+</html>
