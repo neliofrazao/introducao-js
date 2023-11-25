@@ -7,38 +7,49 @@
 <!-- template-string -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <script>
-      function minhaFuncao(param, param2){
-        console.log('meu Nome:' + param +' Meu email é' + param2)
+
+<head>
+  <script>
+    function minhaFuncao(param, param2) {
+      console.log('meu Nome:' + param + ' Meu email é' + param2)
+    }
+    const minhaConstFuncao = function (param) {
+      console.log('Sou um função anoônima' + param)
+    }
+
+    
+
+    const funcaoExtra = (paramExtra) => console.log('Nao o que recebo' + { paramExtra })
+    const arr = ['ss', 'bb']
+    const test = 'ssss'
+
+    console.log('typeof', typeof arr === 'object')
+
+    minhaFuncao('email@email.com', 'Nélio');
+    minhaConstFuncao('com params');
+    // função com destructuring 
+    const minhaArrow = ({ param, param1, param2, param3, param4 }) => {
+      
+      // template string
+      console.log(`Sou um arrow func ${param}  ${param1}  ${param2} ${param3}  ${param4}`)
+      
+    }
+    minhaArrow(
+      {
+        param: ' param ',
+        param1: 'param1',
+        param2: 'param2 ',
+        param3: 'param3 ',
+        param4: 'param4 '
       }
-      const minhaConstFuncao =  function(param) {
-        console.log('Sou um função anoônima' + param)
-      }
+    )
+    
 
-      const minhaArrow = ({param, param1, param2, param3, param4}) => {
-        // logica necessária
-        console.log('Sou um arrow func' + param + param1 + param2 + param3 + param4)
-        // return
-      }
 
-      const funcaoExtra = (paramExtra) => console.log('Nao o que recebo' + {paramExtra})
-      const arr = ['ss', 'bb']
-      const test = 'ssss'
+  </script>
+</head>
 
-      console.log( 'typeof', typeof arr === 'object')
+<body>
+</body>
 
-      minhaFuncao('email@email.com', 'Nélio');
-      minhaConstFuncao('com params')
-      minhaArrow({ param: ' param ', param1: 'param1' , param2: 'param2 ',  param3: 'param3 ',  param4: 'param4 '} )
-      funcaoExtra({
-        nome: 'Pessoa',
-        idade: 3
-      })
-
-     
-    </script>
-  </head>
-  <body>      
-  </body>
 </html>
