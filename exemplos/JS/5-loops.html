@@ -11,8 +11,84 @@ Use o FOREACH quando quiser uma abordagem mais funcional para iterar sobre eleme
 <!-- usar o exemplo das divs -->
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-  </head>
-  <body>      
-  </body>
+
+<head>
+  
+</head>
+
+<body>
+  <div>Teste1</div>
+  <div>Teste2</div>
+  <div>Teste3</div>
+  <script>
+
+    const person = [
+      {
+        name: 'Pessoa',
+        age: 34,
+        occupation: 'Dev'
+      },
+      {
+        name: 'Pessoa Nova',
+        age: 34,
+        occupation: 'PD'
+      }
+    ]
+
+    const newPerson  = [];
+
+    for (let index = 0; index < person.length; index++) {
+      const element = person[index];
+      const personData = {
+        nome: person[index].name,
+        idade: person[index].age,
+        ocupacao: person[index].occupation
+      }
+      newPerson.push(personData)
+    }
+
+    for (const key in person) {
+      if (Object.hasOwnProperty.call(person, key)) {
+        const element = person[key];
+        console.log(element)
+      }
+    }
+
+    const objPerson = 
+      {
+        name: 'Pessoa',
+        age: 34,
+        occupation: 'Dev'
+      }
+      
+
+    for (const iterator of person) {
+      console.log('iterator', iterator) 
+    }
+
+    console.log('newPerson',newPerson)
+
+    const getDiv = document.querySelectorAll('div')
+    console.log('getDiv', getDiv);
+
+    for (const idx in getDiv) {
+      if (Object.hasOwnProperty.call(getDiv, idx)) {
+        const element = getDiv[idx];
+        element.innerText = `Minha Div`
+      }
+    }
+    
+    
+    for (const key of getDiv) {
+        const element = getDiv;
+        console.log(element)
+    }
+
+    getDiv.forEach(element => {
+      console.log('forEach', element)
+    });
+    
+  </script>
+</body>
+
 </html>
