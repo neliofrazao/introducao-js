@@ -13,7 +13,7 @@ Use o FOREACH quando quiser uma abordagem mais funcional para iterar sobre eleme
 <html lang="pt-BR">
 
 <head>
-  
+
 </head>
 
 <body>
@@ -30,12 +30,17 @@ Use o FOREACH quando quiser uma abordagem mais funcional para iterar sobre eleme
       },
       {
         name: 'Pessoa Nova',
-        age: 34,
+        age: 25,
+        occupation: 'PD'
+      },
+      {
+        name: 'Pessoa Nova2',
+        age: 40,
         occupation: 'PD'
       }
     ]
 
-    const newPerson  = [];
+    const newPerson = [];
 
     for (let index = 0; index < person.length; index++) {
       const element = person[index];
@@ -54,19 +59,19 @@ Use o FOREACH quando quiser uma abordagem mais funcional para iterar sobre eleme
       }
     }
 
-    const objPerson = 
-      {
-        name: 'Pessoa',
-        age: 34,
-        occupation: 'Dev'
-      }
-      
-
-    for (const iterator of person) {
-      console.log('iterator', iterator) 
+    const objPerson =
+    {
+      name: 'Pessoa',
+      age: 34,
+      occupation: 'Dev'
     }
 
-    console.log('newPerson',newPerson)
+
+    for (const iterator of person) {
+      console.log('iterator', iterator)
+    }
+
+    console.log('newPerson', newPerson)
 
     const getDiv = document.querySelectorAll('div')
     console.log('getDiv', getDiv);
@@ -77,17 +82,36 @@ Use o FOREACH quando quiser uma abordagem mais funcional para iterar sobre eleme
         element.innerText = `Minha Div`
       }
     }
-    
-    
+
+
     for (const key of getDiv) {
-        const element = getDiv;
-        console.log(element)
+      const element = getDiv;
+      console.log(element)
     }
 
     getDiv.forEach(element => {
       console.log('forEach', element)
     });
+
+    const personMapped = person.map((item) => (
+      {
+        id: `${item.name}-${item.age}`,
+        name: item.name,
+        age: item.age,
+      }
+    ))
+
+    const personFilter = person.filter((item) => {
+      // instrucao
+      return item.age > 30
+    }).map((itemPerson) => console.log(itemPerson))
+
+    // console.log('personFilter', personFilter)
+    personFilter   
     
+
+    console.log("persontestPersonMapped", testPerson)
+
   </script>
 </body>
 
