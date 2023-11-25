@@ -103,14 +103,29 @@ Use o FOREACH quando quiser uma abordagem mais funcional para iterar sobre eleme
 
     const personFilter = person.filter((item) => {
       // instrucao
+    //   const item = [
+    //   true,
+    //   false,
+    //   true
+    // ]]
+    console.log('filter', item.age > 30)
       return item.age > 30
-    }).map((itemPerson) => console.log(itemPerson))
+    }).map((itemPerson) => ({
+        id: `${itemPerson.name}-${itemPerson.age}`,
+        name: 'Pessoa',
+        age: 34,
+        occupation: 'Dev'
+    }))
 
-    // console.log('personFilter', personFilter)
-    personFilter   
-    
+    const personFilter2 = person.filter((item) => item.age > 30)
 
-    console.log("persontestPersonMapped", testPerson)
+    console.log('personFilter', personFilter2)
+   
+    const aluno = [{
+      name: 'aluno'
+    }]
+
+    aluno.length && aluno.map((item) => console.log(item))
 
   </script>
 </body>
