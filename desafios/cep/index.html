@@ -38,10 +38,11 @@
     </form>
   </div>
   <script>
-    
+    const logradouro = document.querySelector('#logradouro');
+    logradouro.value = 'Rua das Flores';
 
     // Tarefas a serem realizadas:
-
+    // https://viacep.com.br/ws/50670350/json/
     //1 - Utilizar JavaScript para detectar quando o usuário sai do campo CEP (focusout).
     //2 - Fazer uma requisição à API dos Correios (ViaCEP) para obter informações com base no CEP inserido.
     //3 - Preencher automaticamente os campos de logradouro, bairro, cidade e estado com os dados recebidos da API.
