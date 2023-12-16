@@ -38,8 +38,50 @@
     </form>
   </div>
   <script>
+    // selecionas os elementos do formulário
+    const cep = document.querySelector('#cep');
     const logradouro = document.querySelector('#logradouro');
-    logradouro.value = 'Rua das Flores';
+    const bairro = document.querySelector('#bairro');
+    const localidade = document.querySelector('#localidade');
+    const uf = document.querySelector('#uf');
+    const fieldsToEnable = ['logradouro', 'bairro', 'localidade', 'uf'];
+
+    const getCep = (cepValue) => {
+      fetch(`https://viacep.com.br/ws/${cepValue}/json/`, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(response => response.json())
+        .then(
+          data => {
+            logradouro.value = data.logradouro ?? '' ;
+            // Nullish coalescing operator
+            bairro.value = data.bairro ?? '';
+            localidade.value = data.localidade ?? '';
+            uf.value = data.uf ?? '';
+
+            fieldsToEnable.forEach(fieldName => {
+              const field = document.querySelector(`#${fieldName}`);
+              console.log(data[fieldName])
+              if(!data[fieldName]) {
+                field.setAttribute('disabled', true);
+              } else {
+                field.removeAttribute('disabled');
+              }
+            });
+          }
+        )
+        .catch(err => console.log(err))
+    }
+
+    cep.addEventListener('focusout', (event) => {
+      const cepValue = event.target.value;
+      getCep(cepValue)
+    })
+
+
+
 
     // Tarefas a serem realizadas:
     // https://viacep.com.br/ws/50670350/json/
