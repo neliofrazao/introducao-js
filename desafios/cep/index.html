@@ -44,13 +44,15 @@
     const bairro = document.querySelector('#bairro');
     const localidade = document.querySelector('#localidade');
     const uf = document.querySelector('#uf');
+
+
     const fieldsToEnable = ['logradouro', 'bairro', 'localidade', 'uf'];
 
     const getCep = (cepValue) => {
       fetch(`https://viacep.com.br/ws/${cepValue}/json/`, {
         headers: {
           'Content-Type': 'application/json'
-        },
+        }
       })
         .then(response => response.json())
         .then(
@@ -62,9 +64,9 @@
             uf.value = data.uf ?? '';
 
             fieldsToEnable.forEach(fieldName => {
-              const field = document.querySelector(`#${fieldName}`);
+              const field = document.getElementById(fieldName);
               console.log(data[fieldName])
-              if(!data[fieldName]) {
+              if(data[fieldName]) {
                 field.setAttribute('disabled', true);
               } else {
                 field.removeAttribute('disabled');
@@ -72,16 +74,47 @@
             });
           }
         )
-        .catch(err => alert('Cwep inválido'))
+        .catch(err => alert('Cep inválido'))
     }
 
-    cep.addEventListener('focusout', (event) => {
-      const cepValue = event.target.value;
-      // cep.value
-      getCep(cepValue)
+    const getCepSecondWay = async (cepValue) => {
+      try {
+        const cepResponse = await fetch(`https://viacep.com.br/ws/${cepValue}/json/`)
+        const alunoResponse = await fetch(`https://viacep.com.br/ws/${cepValue}/json/`)
+        return response.json();
+      } catch (err) {
+        alert('Cep inválido')
+      }
+    }
+
+    promise.all.then(data => {
+      console.log(data)
+    }).catch(err => {
+      console.log(err)
     })
 
 
+
+    const getCepResponseOK = async (cepValue) => {
+      const response = await fetch(`https://viacep.com.br/ws/${cepValue}/json/`)
+      if(response.ok) {
+        const data = response.json();
+        console.log(data)
+      } else {
+        throw new Error('Cep inválido')
+      }  
+    }
+    
+    cep.addEventListener('focusout', (event) => {
+      const cepValue = event.target.value;
+      const cepValueSecondWay = cep.value;
+      // cep.value
+      getCep(cepValue)
+      // getCepResponseOK('50670350')
+    })
+
+
+   
 
 
     // Tarefas a serem realizadas:
