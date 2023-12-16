@@ -72,11 +72,12 @@
             });
           }
         )
-        .catch(err => console.log(err))
+        .catch(err => alert('Cwep inválido'))
     }
 
     cep.addEventListener('focusout', (event) => {
       const cepValue = event.target.value;
+      // cep.value
       getCep(cepValue)
     })
 
